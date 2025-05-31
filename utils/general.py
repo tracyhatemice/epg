@@ -63,7 +63,7 @@ def cht_to_chs(line):
 # 将多个频道ID解析为单个ID 解析为 {'tvmao':'cctv1','cctv':'cctv1'....}
 def channel_ids_to_dict(channel_id):
     channel_list = {}
-    rs = re.findall("<(\w+):(.+?)>", channel_id)
+    rs = re.findall(r"<(\w+):(.+?)>", channel_id)
     for r in rs:
         c = {r[0]: r[1]}
         channel_list.update(c)
