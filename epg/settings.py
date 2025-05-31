@@ -16,7 +16,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # 请先随机生成!!!
-SECRET_KEY = "django-insecure-h+$18j4w!n3*9pk@wi3nb(oi&w=&*$c$dzw^7cgp5b4&14im&7"
+# python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+SECRET_KEY = "django-insecure-^54gr@%m1!z*e)q#*6iu*p22kxmg9(ac#p_w&5by^*l(gn-8@n"
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -26,7 +27,7 @@ WARNING: 正式环境下面的True改为False!
 DEBUG = True
 
 # 允许的域名
-ALLOWED_HOSTS = ["https://epg.imxd.top", "https://epg.mxdyeah.top"]
+ALLOWED_HOSTS = ["EPG_FQDN", "localhost"]
 
 # 建议禁止或注释
 # DENY ：表示该页面不允许在 frame 中展示，即便是在相同域名的页面中嵌套也不允许
@@ -39,19 +40,16 @@ ALLOWED_HOSTS = ["https://epg.imxd.top", "https://epg.mxdyeah.top"]
 SECURE_CONTENT_TYPE_NOSNIFF = False
 
 # 也是允许域名
-CSRF_TRUSTED_ORIGINS = ["https://epg.mxdyeah.top", "https://epg.crestekk.cn"]
-
-# 如果要配置Nginx反向代理，这里需要修改为你的域名
-CSRF_TRUSTED_ORIGINS = ["https://epg.mxdyeah.top", "https://epg.crestekk.cn"]
+CSRF_TRUSTED_ORIGINS = ["https://EPG_FQDN", "http://EPG_FQDN", "http://localhost"]
 
 # Redis缓存，不需要的禁用
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": "redis://default(用户名):password(密码)@127.0.0.1:6379",
-        # Redis 默认用户名为default , 老版本除外
-    }
-}
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django.core.cache.backends.redis.RedisCache",
+#         "LOCATION": "redis://default(用户名):password(密码)@127.0.0.1:6379",
+#         # Redis 默认用户名为default , 老版本除外
+#     }
+# }
 
 
 INSTALLED_APPS = [
@@ -118,11 +116,11 @@ DATABASES = {
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "epg",
-        "USER": "epg",
-        "PASSWORD": "Change ME",
-        "HOST": "127.0.0.1",
-        "PORT": "3306",
+        "NAME": "EPG_DB_NAME",
+        "USER": "EPG_DB_USERNAME",
+        "PASSWORD": "EPG_DB_PASSWORD",
+        "HOST": "EPG_DB_HOST",
+        "PORT": "EPG_DB_PORT",
     },
 }
 

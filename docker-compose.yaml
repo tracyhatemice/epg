@@ -1,0 +1,33 @@
+services:
+  epg:
+    container_name: epg
+    hostname: epg
+    build: .  
+    restart: unless-stopped
+    environment:
+      EPG_DB_NAME: ${EPG_DB_NAME}
+      EPG_DB_USERNAME: ${EPG_DB_USERNAME}
+      EPG_DB_PASSWORD: ${EPG_DB_PASSWORD}
+      EPG_DB_HOST: ${EPG_DB_HOST}
+      EPG_DB_PORT: ${EPG_DB_PORT}
+      EPG_FQDN: ${EPG_FQDN}
+    volumes:
+      - ./download:/app/download
+    networks:
+      - traefik
+    labels:
+      traefik.enable: true
+      traefik.docker.network: 'traefik'
+      traefik.http.routers.epg-https.entrypoints: https
+      traefik.http.routers.epg-https.tls: true
+      traefik.http.routers.epg-https.middlewares: 'crowdsec@docker,gzip@docker'
+      traefik.http.routers.epg-https.rule: Host(`${EPG_FQDN}`)
+      traefik.http.routers.epg-https.service: epg-backend
+      traefik.http.routers.epg-https.tls.certresolver: route53
+      traefik.http.routers.epg-https.tls.domains[0].main: '${EPG_FQDN}'
+      traefik.http.services.epg-backend.loadbalancer.server.scheme: http
+      traefik.http.services.epg-backend.loadbalancer.server.port: 80
+
+networks:
+  traefik:
+    external: true

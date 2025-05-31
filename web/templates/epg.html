@@ -5,19 +5,19 @@
 <head>
 
     <meta charset="utf-8">
-    <link rel="icon" type="image/x-icon" href="https://cdn.picui.cn/vip/2024/06/02/665bddeff07fc.ico">
+    <link rel="icon" type="image/x-icon" href="{% static "/img/fav.ico" %}">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes" />
     <meta name="description" content="免费EPG节目清单,CCTV,支持DIYP接口,在线直播,自动更新">
     <meta name="keywords" content="IPTV,epg,m3u8,live,cctv,地方台,直播">
     <meta name="author" content="mxdyeah">
     <title>mxd's EPG - Powered by mxd</title>
-    <link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
-    <script src="//lf6-cdn-tos.bytecdntp.com/cdn/expire-1-ms/jquery/2.1.1/jquery.min.js" crossorigin="anonymous"></script>
-    <script src="//lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
-    <script src="//lf9-cdn-tos.bytecdntp.com/cdn/expire-1-ms/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
-    <script src="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
-    <link href="{% static " ./css/mxd.css" %}" rel="stylesheet">
-    <script src="{% static " ./js/mxd.js" %}"></script>
+    <link rel="stylesheet" href="{% static "/css/bootstrap/4.3.1/bootstrap.min.css" %}">
+    <script src="{% static "/js/jquery/2.1.1/jquery-2.1.1.min.js" %}"></script>
+    <script src="{% static "/js/jquery.lazyload.min.js" %}"></script>
+    <script src="{% static "/js/popper/1.14.7/popper.min.js" %}"></script>
+    <script src="{% static "/js/bootstrap/4.3.1/bootstrap.min.js" %}"></script>
+    <link href="{% static "/css/mxd.css" %}" rel="stylesheet">
+    <script src="{% static "/js/mxd.js" %}"></script>
 
 </head>
 
@@ -68,8 +68,7 @@
                         <th>{{ forloop.counter }}</th>
                         <td><a href="{{ channel.logo }}"><img class="lazy" data-original="{{ channel.logo }}"
                                     alt="{{ channel.tvg_name }}" height="30"></a></td>
-                        <td><a href="/api/web/?ch={{ channel.tvg_name }}&date={{ start_date_no }}">{{ channel.name
-                                }}</a></td>
+                        <td><a href="/api/web/?ch={{ channel.tvg_name }}&date={{ start_date_no }}">{{ channel.name }}</a></td>
                         <td>{{ channel.tvg_name }}</td>
                         <td>{{ channel.id }}</td>
                         <td>{{ channel.sort }}</td>
