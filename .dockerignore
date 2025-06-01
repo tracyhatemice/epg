@@ -3,7 +3,6 @@
 **/__pychache__
 **/*.pyc
 **/.idea
-download/*
 *.sqlite3
 .git
 .gitignore
