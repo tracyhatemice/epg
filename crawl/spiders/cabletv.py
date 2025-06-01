@@ -104,7 +104,7 @@ def get_channels_cabletv():  # 使用原来代码，只更改输出
         lis += lis1
     for li in lis:  # 获取频道名称与ID对应的列表
         try:
-            id1 = re.search("(id=\d+&cid=\d+)", li["onclick"])
+            id1 = re.search(r"(id=\d+&cid=\d+)", li["onclick"])
             id = id1.group(1)
         except Exception as e:
             print(e)
@@ -112,7 +112,7 @@ def get_channels_cabletv():  # 使用原来代码，只更改输出
         name = li.text.replace("\n", "").replace(" ", "").replace("(高清)", "")
         ls.update({id: name})
     for dd in dds:
-        title = re.sub("\s", "", dd.text.replace(" ", "").replace("\n", ""))
+        title = re.sub(r"\s", "", dd.text.replace(" ", "").replace(r"\n", ""))
         id = (
             dd.attrs["onclick"]
             .replace("href('?", "")

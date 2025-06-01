@@ -74,7 +74,7 @@ def get_channels_mod():
             id = name[:3].strip()
             img = (
                 "http://mod.cht.com.tw"
-                + re.sub("\?rand=\d*", "", div.select("img")[0].attrs["src"]).strip()
+                + re.sub(r"\?rand=\d*", "", div.select("img")[0].attrs["src"]).strip()
             )
             channel = {
                 "name": name,

@@ -16,7 +16,7 @@ def get_epgs_sdtv(channel, channel_id, dt, func_arg):
         )
         res = requests.get(url, timeout=8)
         res.encoding = "utf-8"
-        re_j = re.search(".+?\((.+?)\)", res.text, re.DOTALL).group(1)
+        re_j = re.search(r".+?\((.+?)\)", res.text, re.DOTALL).group(1)
         re_json = json.loads(re_j)
         contents = re_json["value"]["list"]
         time_delta_days = (dt - datetime.datetime.now().date()).days
@@ -57,7 +57,7 @@ def get_channels_sdtv():
     res.encoding = "utf-8"
     re_l = re.search("var channels = (.+?);", res.text, re.DOTALL).group(1)
     contents = re.findall(
-        '"\w+"\:{.+?"id"\:(\d+)\,"live"\:"(\w+)"\,"m3u8"\:"(.+?)"\,"catname"\:"(\w+)".+?}',
+        r'"\w+"\:{.+?"id"\:(\d+)\,"live"\:"(\w+)"\,"m3u8"\:"(.+?)"\,"catname"\:"(\w+)".+?}',
         re_l,
         re.DOTALL,
     )

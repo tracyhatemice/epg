@@ -18,7 +18,7 @@ def get_epgs_zhongshu(channel, channel_id, dt, func_arg):
     try:
         res = requests.get(url, headers=headers, timeout=5)
         rs = re.findall(
-            'epgs\[\d+\]=new Array\("(\d+)","(\d+)","(\d+:\d+)", "(.+?)",.+?\)',
+            r'epgs\[\d+\]=new Array\("(\d+)","(\d+)","(\d+:\d+)", "(.+?)",.+?\)',
             res.text,
         )  # 0 月 1日 2时间 3节目
     except Exception as e:

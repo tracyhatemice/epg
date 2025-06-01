@@ -23,7 +23,7 @@ def get_epgs_tbc(channel, channel_id, dt, func_arg):
                 desc = li.attrs["desc"]
                 date_ = li.attrs["date"]
                 time_delay = li.attrs["time"].strip()
-                time_delay_re = re.search("(\d+:\d+)~(\d+:\d+)", time_delay)
+                time_delay_re = re.search(r"(\d+:\d+)~(\d+:\d+)", time_delay)
                 if time_delay_re:  # 有节目信息则解析
                     start_str, end_str = time_delay_re.group(1), time_delay_re.group(
                         2

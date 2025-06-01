@@ -17,7 +17,7 @@ def get_epgs_cctv(channel, channel_id, dt, func_arg):
     try:
         res = requests.get(url, headers=headers, timeout=5)
         res.encoding = "utf-8"
-        programs = json.loads(re.search("set\((.*)\)", res.text).group(1))
+        programs = json.loads(re.search(r"set\((.*)\)", res.text).group(1))
         prog_lists = programs["data"][channel_id]["list"]
         for prog_list in prog_lists:  #
             title = prog_list["title"]  # 节目名称

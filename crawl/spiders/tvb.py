@@ -105,7 +105,7 @@ def get_epgs_tvb_old(
 def get_channels_tvb():
     url = "https://programme.tvb.com/assets/index.85ba94a8.js"
     res = requests.get(url)
-    res_re = re.search("const e\=(.+?),n\=", res.text)
+    res_re = re.search(r"const e\=(.+?),n\=", res.text)
     channels_str = res_re.group(1)
     channels_str = (
         channels_str.encode("raw_unicode_escape")
@@ -114,7 +114,7 @@ def get_channels_tvb():
         .replace("null", "0")
     )
     channels_str = re.sub(
-        '([{,])(?!")(\w+)(\:)',
+        r'([{,])(?!")(\w+)(\:)',
         lambda m: m.group(1) + '"' + m.group(2) + '"' + m.group(3),
         channels_str,
     )
