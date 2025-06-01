@@ -155,6 +155,7 @@ USE_L10N = True
 USE_TZ = True
 
 # 静态文件需要在Nginx配置
+STATIC_ROOT = "/app/static/"
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
