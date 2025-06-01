@@ -99,9 +99,6 @@ WSGI_APPLICATION = "epg.wsgi.application"
 # 数据库
 # https://docs.djangoproject.com/zh-hans/4.2/ref/settings/#databases
 
-# 教程，在我博客搜索相关文章
-# https://blog.mxdyeah.top/
-
 # SQlite3 可能会导致获取大量数据时失败，并发太低:
 """
 DATABASES = {

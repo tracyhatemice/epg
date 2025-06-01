@@ -1,13 +1,13 @@
-.mxd_diy_footer {
+.epg_diy_footer {
     margin: 0 auto;
     width: 1200px;
 }
 
-#mxd_diy_footer .mxd_diy_footer {
+#epg_diy_footer .epg_diy_footer {
     width: auto;
 }
 
-.mxd_diy_footer_zoom {
+.epg_diy_footer_zoom {
     zoom: 1;
 }
 

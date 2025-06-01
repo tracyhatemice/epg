@@ -9,30 +9,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes" />
     <meta name="description" content="免费EPG节目清单,CCTV,支持DIYP接口,在线直播,自动更新">
     <meta name="keywords" content="IPTV,epg,m3u8,live,cctv,地方台,直播">
-    <meta name="author" content="mxdyeah">
-    <title>mxd's EPG - Powered by mxd</title>
+    <meta name="author" content="epg">
+    <title>EPG</title>
     <link rel="stylesheet" href="{% static "/css/bootstrap/4.3.1/bootstrap.min.css" %}">
     <script src="{% static "/js/jquery/2.1.1/jquery-2.1.1.min.js" %}"></script>
     <script src="{% static "/js/jquery.lazyload.min.js" %}"></script>
     <script src="{% static "/js/popper/1.14.7/popper.min.js" %}"></script>
     <script src="{% static "/js/bootstrap/4.3.1/bootstrap.min.js" %}"></script>
-    <link href="{% static "/css/mxd.css" %}" rel="stylesheet">
-    <script src="{% static "/js/mxd.js" %}"></script>
+    <link href="{% static "/css/epg.css" %}" rel="stylesheet">
+    <script src="{% static "/js/epg.js" %}"></script>
 
 </head>
 
 <body>
     <div class="container bg-light">
         <br />
-        <h1>mxd's EPG</h1>
+        <h1>EPG</h1>
         <br />
         <div style="text-wrap: wrap;">
             <div class="fontsize18px">
                 <em>当前EPG服务器版本:V3.1(Github)</em>&nbsp;
                 <div class="fontsize22px">
-                    DIYP接口<code>https://[ip或域名]/api/diyp/</code><br>使用DIYP需要提供参数,例如:<code>?ch=CCTV1&amp;date=20230701</code>
+                    DIYP接口<code>https://{{ epg_fqdn }}/api/diyp/</code><br>使用DIYP需要提供参数,例如:<code>?ch=CCTV1&amp;date=20230701</code>
                     <br />
-                    XML下载地址<code>https://[ip或域名]/download/all.xml</code>
+                    XML下载地址<code>https://{{ epg_fqdn }}/download/all.xml</code>
                 </div>
             </div>
             <p style="text-wrap: wrap;">
@@ -81,9 +81,8 @@
         </div>
         <footer>
             <hr>
-            <div id="mxdyeah_diy" class="container bg-light mxd_diy_footer mxd_diy_footer_zoom">
-                mxd's EPG by&nbsp;<a href="https://www.mxdyeah.top/" target="_blank">mxd.</a>
-                <br>Copyright&nbsp;©&nbsp;2021-2025 mxd Team.
+            <div class="container bg-light epg_diy_footer epg_diy_footer_zoom">
+                <br>Copyright&nbsp;©&nbsp;2021-2025 EPG.
             </div>
         </footer>
 </body>

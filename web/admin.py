@@ -1,8 +1,8 @@
 from django.contrib import admin
 from .models import Channel, Epg, Crawl_log, Channel_list
 
-admin.site.site_header = "mxd EPG--频道配置"
-admin.site.site_title = "mxd EPG"
+admin.site.site_header = "EPG 频道配置"
+admin.site.site_title = "EPG"
 admin.site.index_title = "后台首页"
 
 

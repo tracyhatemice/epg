@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 
 # 打开并解析 XML 文件
-tree = ET.parse("/mxdyeah/epg/epg_match.xml")  # 路径注意
+tree = ET.parse("/app/epg/epg_match.xml")  # 路径注意
 root = tree.getroot()
 
 arr = {}

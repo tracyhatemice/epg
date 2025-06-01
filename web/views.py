@@ -7,11 +7,13 @@ import datetime, re, json, os
 from dateutil import tz
 import xml.etree.ElementTree as ET
 from urllib.parse import parse_qsl, unquote_plus, urlencode, parse_qs
+import os
 
 tz_sh = tz.gettz("Asia/Shanghai")
 
 
 def index(request):
+    epg_fqdn = os.getenv("EPG_FQDN", "localhost")
     crawl_days = crawl_info["gen_xml_days"]
     start_date = (
         datetime.datetime.now()
@@ -35,6 +37,7 @@ def index(request):
         "end_date": end_date,
         "channels": info["channels"],
         "root_dir": root_dir,
+        "epg_fqdn": epg_fqdn,
         "n": 0,
     }
     return render(request, "epg.html", context=ret)
@@ -104,7 +107,7 @@ def diyp(request):
     return HttpResponse(j, content_type="application/json")
 
 
-def mxdepg(request):
+def epg(request):
 
     tvg_names = request.GET["ch"]
     # 1. 获取原始的查询字符串
@@ -270,7 +273,7 @@ def standardize_channel_name(channel):
     return tid
 
 
-def channel_xml(id, filename="/mxdyeah/epg/epg_match.xml"):  ##这里路径注意
+def channel_xml(id, filename="/app/epg/epg_match.xml"):  ##这里路径注意
     try:
         # 打开并解析 XML 文件
         tree = ET.parse(filename)
