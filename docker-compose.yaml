@@ -25,7 +25,7 @@ services:
       traefik.http.routers.epg-https.tls.certresolver: route53
       traefik.http.routers.epg-https.tls.domains[0].main: '${EPG_FQDN}'
       traefik.http.services.epg-backend.loadbalancer.server.scheme: http
-      traefik.http.services.epg-backend.loadbalancer.server.port: 80
+      traefik.http.services.epg-backend.loadbalancer.server.port: 8080
 
 networks:
   traefik:
