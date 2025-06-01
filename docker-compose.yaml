@@ -11,6 +11,7 @@ services:
       EPG_DB_HOST: ${EPG_DB_HOST}
       EPG_DB_PORT: ${EPG_DB_PORT}
       EPG_FQDN: ${EPG_FQDN}
+      DEBUG: ${DEBUG:-false}
     volumes:
       - ./download:/app/download
       - ./cronjob:/etc/crontab

@@ -12,9 +12,7 @@ RUN pip install --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
-
-# COPY cronjob /etc/cron.d/cronjob
-# RUN chmod 0644 /etc/cron.d/cronjob
+COPY ./cronjob /etc/crontab
 
 EXPOSE 80
 ENTRYPOINT ["/app/entrypoint.sh"]

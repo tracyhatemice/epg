@@ -51,6 +51,7 @@
 - requests
 - django
 - BeautifulSoup
+- mysqlclient
 
 ## Star History
 

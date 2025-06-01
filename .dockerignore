@@ -1,0 +1,17 @@
+**/.DS_Store
+**/Thumbs.db
+**/__pychache__
+**/*.pyc
+**/.idea
+download/*
+*.sqlite3
+.git
+.gitignore
+.dockerignore
+.env
+.env.sample
+.venv
+.devcontainer
+Dockerfile
+compose.yaml
+docker-compose.yaml

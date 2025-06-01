@@ -24,10 +24,10 @@ SECRET_KEY = "django-insecure-^54gr@%m1!z*e)q#*6iu*p22kxmg9(ac#p_w&5by^*l(gn-8@n
 """
 WARNING: 正式环境下面的True改为False!
 """
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "True").lower() in ("true", "1", "yes")
 
 # 允许的域名
-ALLOWED_HOSTS = ["EPG_FQDN", "localhost"]
+ALLOWED_HOSTS = [os.environ.get("EPG_FQDN"), "localhost"]
 
 # 建议禁止或注释
 # DENY ：表示该页面不允许在 frame 中展示，即便是在相同域名的页面中嵌套也不允许
@@ -40,7 +40,7 @@ ALLOWED_HOSTS = ["EPG_FQDN", "localhost"]
 SECURE_CONTENT_TYPE_NOSNIFF = False
 
 # 也是允许域名
-CSRF_TRUSTED_ORIGINS = ["https://EPG_FQDN", "http://EPG_FQDN", "http://localhost"]
+CSRF_TRUSTED_ORIGINS = ["https://" + os.environ.get("EPG_FQDN"), "http://"  + os.environ.get("EPG_FQDN"), "http://localhost"]
 
 # Redis缓存，不需要的禁用
 # CACHES = {
@@ -116,11 +116,11 @@ DATABASES = {
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "EPG_DB_NAME",
-        "USER": "EPG_DB_USERNAME",
-        "PASSWORD": "EPG_DB_PASSWORD",
-        "HOST": "EPG_DB_HOST",
-        "PORT": "EPG_DB_PORT",
+        "NAME":  os.environ.get("EPG_DB_NAME", "epg"),  # 数据库名称
+        "USER": os.environ.get("EPG_USERNAME", "epg"), # 数据库用户名
+        "PASSWORD": os.environ.get("EPG_DB_PASSWORD"), # 数据库密码
+        "HOST": os.environ.get("EPG_DB_HOST", "127.0.0.1"),  # 数据库地址
+        "PORT": os.environ.get("EPG_DB_PORT", "3306"),  # 默认端口
     },
 }
 
