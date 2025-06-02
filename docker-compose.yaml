@@ -5,6 +5,7 @@ services:
     build: .  
     restart: unless-stopped
     environment:
+      TZ: Asia/Shanghai
       EPG_DB_NAME: ${EPG_DB_NAME}
       EPG_DB_USERNAME: ${EPG_DB_USERNAME}
       EPG_DB_PASSWORD: ${EPG_DB_PASSWORD}
@@ -29,7 +30,7 @@ services:
     volumes:
       # 仅限标准的 Linux 环境
       - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
+      - /etc/TZ:/etc/timezone:ro
 networks:
   traefik:
     external: true

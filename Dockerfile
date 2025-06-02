@@ -2,7 +2,7 @@ FROM python:3.12-slim
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y gcc default-libmysqlclient-dev pkg-config \
-    && apt-get -y install cron \
+    && apt-get -y install cron tzdata \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /etc/cron.*/*
 
