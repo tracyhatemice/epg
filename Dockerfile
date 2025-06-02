@@ -16,7 +16,11 @@ COPY ./cronjob /etc/cron.d/epg
 RUN chmod 0644 /etc/cron.d/epg
 
 ARG TZ
+<<<<<<< HEAD
 RUN echo $TZ > /etc/timezone
+=======
+RUN echo ${TZ} > /etc/timezone
+>>>>>>> 4d8b44b (fix typo)
 
 EXPOSE 80
 ENTRYPOINT ["/app/entrypoint.sh"]
