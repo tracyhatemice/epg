@@ -15,5 +15,8 @@ COPY . /app
 COPY ./cronjob /etc/cron.d/epg
 RUN chmod 0644 /etc/cron.d/epg
 
+ARG TZ
+RUN echo $TZ > /etc/timezone
+
 EXPOSE 80
 ENTRYPOINT ["/app/entrypoint.sh"]

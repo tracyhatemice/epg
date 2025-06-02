@@ -30,7 +30,6 @@ services:
     volumes:
       # 仅限标准的 Linux 环境
       - /etc/localtime:/etc/localtime:ro
-      - /etc/TZ:/etc/timezone:ro
 networks:
   traefik:
     external: true
