@@ -11,6 +11,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # *  *  *  *  * user-name command to be executed
 # Ref: https://github.com/AnalogJ/docker-cron/ and https://stackoverflow.com/a/37458519
 
-10 16 * * * root cd /app && python3 main.py -s > /proc/1/fd/1 2>/proc/1/fd/2
+10 2 * * * root cd /app && python3 main.py -s > /proc/1/fd/1 2>/proc/1/fd/2
 
 # An empty line is required at the end of this file for a valid cron file.

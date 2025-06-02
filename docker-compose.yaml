@@ -26,7 +26,10 @@ services:
       traefik.http.routers.epg-https.tls.domains[0].main: '${EPG_FQDN}'
       traefik.http.services.epg-backend.loadbalancer.server.scheme: http
       traefik.http.services.epg-backend.loadbalancer.server.port: 8080
-
+    volumes:
+      # 仅限标准的 Linux 环境
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
 networks:
   traefik:
     external: true
